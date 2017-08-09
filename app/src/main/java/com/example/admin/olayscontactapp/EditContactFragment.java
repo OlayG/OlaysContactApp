@@ -33,10 +33,12 @@ public class EditContactFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_edit_contact, container, false);
 
-        int position = getArguments().getInt("CURRENT_CONTACT");
+        Contact contact = getArguments().getParcelable("CURRENT_CONTACT");
 
+/*
         DatabaseHelper databaseHelper = new DatabaseHelper(EditContactFragment.this.getActivity());
         Contact contact = databaseHelper.getOneContact(position);
+*/
 
         etFName = view.findViewById(R.id.etFName);
         etFName.setText(contact.getFirstName());

@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,7 @@ public class MainActivityFragment extends Fragment {
         for(int i = 0; i < contacts.size(); i++){
             listContacts.add(new AdapterItems(
                     contacts.get(i).firstName + " " + contacts.get(i).lastName,
-                    String.valueOf(contacts.get(i).phoneNumber), contacts.get(i).photo));
+                    contacts.get(i).phoneNumber, contacts.get(i).photo));
         }
 
         adapter = new MyCustomAdapter(listContacts);
@@ -54,7 +53,7 @@ public class MainActivityFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 */
                 Bundle bundle = new Bundle();
-                bundle.putInt("CURRENT_CONTACT", position);
+                bundle.putParcelable("CURRENT_CONTACT", contacts.get(position));
                 editContactFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().add(R.id.fragment, editContactFragment).commit();
             }

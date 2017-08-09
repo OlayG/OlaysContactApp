@@ -54,9 +54,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(CONTACT_FIRSTNAME, contact.getFirstName());
-        cv.put(CONTACT_LASTNAME, contact.getFirstName());
-        cv.put(CONTACT_PHONENUMBER, contact.getFirstName());
-        cv.put(CONTACT_COMPANY, contact.getFirstName());
+        cv.put(CONTACT_LASTNAME, contact.getLastName());
+        cv.put(CONTACT_PHONENUMBER, contact.getPhoneNumber());
+        cv.put(CONTACT_COMPANY, contact.getCompany());
         cv.put(CONTACT_PHOTO, contact.getPhoto());
 
         db.insert(TABLE_NAME, null, cv);
@@ -73,7 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 Contact contact = new Contact(
                         cursor.getString(1), cursor.getString(2),
-                        cursor.getInt(3), cursor.getString(4),
+                        cursor.getString(3), cursor.getString(4),
                         cursor.getBlob(5)
                 );
                 contacts.add(contact);
@@ -89,7 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Contact contact = new Contact();
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE "+ CONTACT_ID + "=" + position;
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE "+ CONTACT_ID + "=" + 0;
 
         //String[] selectionArg = new String[]{CONTACT_NAME, "John"};
 
@@ -100,7 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         contact = new Contact(
                 cursor.getString(1), cursor.getString(2),
-                cursor.getInt(3), cursor.getString(4),
+                cursor.getString(3), cursor.getString(4),
                 cursor.getBlob(5)
         );
 

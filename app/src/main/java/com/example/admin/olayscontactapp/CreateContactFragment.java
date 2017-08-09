@@ -71,7 +71,7 @@ public class CreateContactFragment extends Fragment {
                 try{
                     contact = new Contact(
                             etFirstName.getText().toString().trim(), etLastName.getText().toString().trim(),
-                            Integer.valueOf(etPhone.getText().toString()), etCompany.getText().toString().trim(),
+                            etPhone.getText().toString().trim(), etCompany.getText().toString().trim(),
                             imageViewToByte());
                     DatabaseHelper db = new DatabaseHelper(CreateContactFragment.this.getActivity());
                     db.saveNewContact(contact);
