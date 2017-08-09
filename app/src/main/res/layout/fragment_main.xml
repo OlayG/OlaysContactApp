@@ -10,10 +10,18 @@
     android:background="?android:windowBackground">
 
 
-    <ListView
+   <!-- <ListView
         android:background="#f9f9f9"
         android:id="@+id/lvContactList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" />-->
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:background="#f9f9f9"
+        android:id="@+id/lvContactList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.baoyz.swipemenulistview.SwipeMenuListView>
 
 </RelativeLayout>
